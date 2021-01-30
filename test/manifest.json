@@ -19,12 +19,8 @@
         "matches":["*://*.meet.google.com/*"],
         "js" : ["content_scripts/msg_to_voice.js"]
     }
-  ],
+  ]
 
-    "background":
-        {         
-            "scripts": ["extension.js"]
-        }  
    
   }
   
