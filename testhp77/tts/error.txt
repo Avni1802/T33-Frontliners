@@ -1,0 +1,118 @@
+Validation Summary:
+
+errors          11             
+notices         0              
+warnings        1              
+
+ERRORS:
+
+Code              Message       Description             File          Line   Column
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/0/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should be                                                        
+                  equal to                                                         
+                  one of the                                                       
+                  allowed                                                          
+                  values                                                           
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/0/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should                                                           
+                  match                                                            
+                  pattern                                                          
+                  "^(https?|…                                                      
+                  wss?|file|…                                                      
+                  ftp|\*)://…                                                      
+                  (\*|\*\.[^…                                                      
+                  */]+|[^*/]…                                                      
+                  +)/.*$"                                                          
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/0/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should                                                           
+                  match                                                            
+                  pattern                                                          
+                  "^file:///…                                                      
+                  .*$"                                                             
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/0/…   not be parsed.                                     
+                  matches/0"                                                       
+                  is not a                                                         
+                  valid key                                                        
+                  or has                                                           
+                  invalid                                                          
+                  extra                                                            
+                  properties                                                       
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/0/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should                                                           
+                  match                                                            
+                  pattern                                                          
+                  "^resource…                                                      
+                  ://(\*|\*\…                                                      
+                  .[^*/]+|[^…                                                      
+                  */]+)/.*$|…                                                      
+                  ^about:"                                                         
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/1/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should be                                                        
+                  equal to                                                         
+                  one of the                                                       
+                  allowed                                                          
+                  values                                                           
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/1/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should                                                           
+                  match                                                            
+                  pattern                                                          
+                  "^(https?|…                                                      
+                  wss?|file|…                                                      
+                  ftp|\*)://…                                                      
+                  (\*|\*\.[^…                                                      
+                  */]+|[^*/]…                                                      
+                  +)/.*$"                                                          
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/1/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should                                                           
+                  match                                                            
+                  pattern                                                          
+                  "^file:///…                                                      
+                  .*$"                                                             
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/1/…   not be parsed.                                     
+                  matches/0"                                                       
+                  is not a                                                         
+                  valid key                                                        
+                  or has                                                           
+                  invalid                                                          
+                  extra                                                            
+                  properties                                                       
+JSON_INVALID      "/content_…   Your JSON file could                               
+                  scripts/1/…   not be parsed.                                     
+                  matches/0"                                                       
+                  should                                                           
+                  match                                                            
+                  pattern                                                          
+                  "^resource…                                                      
+                  ://(\*|\*\…                                                      
+                  .[^*/]+|[^…                                                      
+                  */]+)/.*$|…                                                      
+                  ^about:"                                                         
+JS_SYNTAX_ERROR   JavaScript    There is a JavaScript   popup/inde…   9      1     
+                  syntax        syntax error in your    x.js                       
+                  error         code; validation                                   
+                                cannot continue on                                 
+                                this file.                                         
+WARNINGS:
+
+Code                Message       Description             File          Line   Column
+ICON_SIZE_INVALID   The size of   Expected icon at        manifest.j…                
+                    the icon      "icons/tts-48.png" to   son                        
+                    does not      be 48 pixels wide but                              
+                    match the     was 512.                                           
+                    manifest.                                                        
