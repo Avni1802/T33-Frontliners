@@ -17,6 +17,11 @@ const config = { attributes: true, childList: true, subtree: false  };
 
 // Callback function to execute when mutations are observed
 const callback = function(mutationsList, observer) {
+
+    if ((textContainer.innerText).includes('500 characters maximum')) {
+        return;
+    }
+
     if (mutationsList.length > 1) {
         console.log("Length increased");
     }
