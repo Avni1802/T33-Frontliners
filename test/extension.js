@@ -5,7 +5,7 @@ function openNewTab() {
   browser.tabs.create({
     'url':"https://meet.google.com/pjr-zxhf-gvo"
   });
-}
+}[4]
 
 
 browser.browserAction.onClicked.addListener(openNewTab);

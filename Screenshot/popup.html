@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/popup.css">
+  <script src="js/popup.js"></script>
+</head>
+<body>
+  <h2>
+    <span>One-click Screenshot</span>
+    <small id="extension_version" class="pull-right"></small>
+  </h2>
+
+  <div class="input-group">
+    <div class="input-group-addon"><label for="filename">Filename</label></div>
+    <input class="form-control" type="search" id="filename" placeholder="website.png" pattern='^[^\t:*?"<>|]*$' spellcheck="false">
+  </div>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" id="autostart"> Start capture automatically when popup opens
+    </label>
+  </div>
+
+  <p>Keyboard shortcut: <a id="shortcut">error</a>.</p>
+
+  <div class="input-group btns">
+    <button class="btn btn-primary" id="capture">Take screenshot</button>
+    <a class="btn btn-default" href="https://stefansundin.github.io/one-click-screenshot/" target="_blank">Help</a>
+    <a class="btn btn-default" href="https://stefansundin.github.io/one-click-screenshot/#donate" target="_blank">Donate</a>
+  </div>
+
+  <p class="injecterror chrome">Chrome extensions can't inject scripts on chrome.google.com. You can use <a href="https://addons.mozilla.org/firefox/addon/one-click-screenshot/" target="_blank">the Firefox version</a> of the addon to do it, however.</p>
+  <p class="injecterror firefox">Firefox extensions can't inject scripts on certain mozilla.org domains. You can use <a href="https://chrome.google.com/webstore/detail/one-click-screenshot/jcjhinpbjkmdphmhkikndcdlfpkgllfo" target="_blank">the Chrome version</a> of the addon to do it, however. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1310082" target="_blank">See bug.</a></p>
+</body>
+</html>
