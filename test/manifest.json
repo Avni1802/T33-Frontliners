@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "test_ext",
+    "version": "1.0",
+  
+    "description": "An Extension to help the differently abled people to access education in these COVID-Time",
+    "homepage_url": "https://github.com/Hackdotslash/T33-Frontliners",
+    "icons": {
+      "48": "icons/quicknote-48.png"
+    },
+  
+    "browser_action": {
+      "default_icon": "icons/quicknote-32.png",
+      "default_title": "Extension"
+    },
+  
+  "content_scripts":[
+    {
+        "matches":["*://*.meet.google.com/*"],
+        "js" : ["content_scripts/msg_to_voice.js"]
+    }
+  ],
+
+    "background":
+        {         
+            "scripts": ["extension.js"]
+        }  
+   
+  }
+  
+  
