@@ -15,9 +15,9 @@
     "clipboardWrite",
     "downloads",
     "storage",
-    "Tabs",
     "pageCapture",
-    "notifications"
+    "notifications",
+    "[<all_urls>]"
     
   ],
 
@@ -25,22 +25,7 @@
     "default_icon": "icons/extension-32.png",
     "default_title": "Extension",
     "default_popup": "popup/home-page.html"
-  },
-
-  "content_scripts":[
-      {
-          "matches":["*://meet.google.com*"],
-          "scripts": ["extension.js"]
-
-
-      },
-      {
-          "matches":["*://youtube*"],
-          "scripts": ["extension-yt.js"]
-      }
-
-
-  ]
+  }
 
 
 }

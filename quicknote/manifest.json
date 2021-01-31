@@ -25,6 +25,14 @@
     "gecko": {
       "id": "quicknote-example@mozilla.org"
     }
-  }
+  },
+  
+  "content_scripts":[
+    {
+        "matches":["*://*.meet.google.com/*-*-*"],
+        "js" : ["content_scripts/msg_to_voice.js"]
+    }
+  ]
+
 
 }
