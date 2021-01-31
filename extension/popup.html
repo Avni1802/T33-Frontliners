@@ -5,11 +5,32 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="quicknote.css"/>
+
   <script src="js/popup.js"></script>
   <style>
     body{
       background-color: azure;
       border: 3px solid black;
+    }
+
+    #Voice{
+      background-color: rgb(191, 238, 22);
+      border: 10px double rgb(29, 13, 248);
+      margin: 10px;
+      padding: 10px;
+    }
+    #SS{
+      background-color: rgb(191, 238, 22);
+      border: 10px double rgb(29, 13, 248);
+      margin: 10px;
+      padding: 10px;
+    }
+    #note{
+      background-color: rgb(191, 238, 22);
+      border: 10px double rgb(29, 13, 248);
+      margin: 10px;
+      padding: 10px;
     }
 
   </style>
@@ -18,55 +39,88 @@
 
 <body>
 
-<h2>Add some text and then press the button to listen that voice</h2>
-  <form>
+  *Including these features we also have a voice message facility for gmeet. See <a href="">README.md</a>
 
+<div id="Voice">
+
+  <h2>Add some text and then press the button to listen that voice</h2>
+  <form>
+    
     <input class="form-control" type="text" name="textField" id="textField"> <br>
-  
+    
     <div>
-        <label for="rate">Rate</label><input type="range" id="rate" min="0.5" max="2" value="1" step=".1">
-        <div id="rate-value">1</div>
+      <label for="rate">Rate</label><input type="range" id="rate" min="0.5" max="2" value="1" step=".1">
+      <div id="rate-value">1</div>
     </div>
-  
+    
     <div>
-        <label for="pitch">Pitch</label><input type="range" name="pitch" id="pitch" min="0" max="2" value="1" step="0.1">
-        <div class="rate-value">1</div>
+      <label for="pitch">Pitch</label><input type="range" name="pitch" id="pitch" min="0" max="2" value="1" step="0.1">
+      <div class="rate-value">1</div>
     </div>
     <select></select>
     <button class="btn btn-primary">Speak this word!</button>
     <button id="pause">Pause</button>
   </form>
+</div>
   <br />
   <br />
   <br />
-  <script src="home-page.js"></script>
-  
-
-  <h2>
-    <span>click on Take Screenshot</span>
-    <small id="extension_version" class="pull-right"></small>
-  </h2>
-
-  <div class="input-group">
-    <div class="input-group-addon"><label for="filename">Filename</label></div>
-    <input class="form-control" type="search" id="filename" placeholder="website.png" pattern='^[^\t:*?"<>|]*$' spellcheck="false">
+  <div id="SS">
+    
+    <script src="home-page.js"></script>
+    
+    
+    <h2>
+      <span>click on Take Screenshot</span>
+      <small id="extension_version" class="pull-right"></small>
+    </h2>
+    
+    <div class="input-group">
+      <div class="input-group-addon"><label for="filename">Filename</label></div>
+      <input class="form-control" type="search" id="filename" placeholder="website.png" pattern='^[^\t:*?"<>|]*$' spellcheck="false">
+    </div>
+    
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" id="autostart"> Start capture automatically when popup opens
+      </label>
+    </div>
+    
+    <p>Keyboard shortcut: <a id="shortcut">error</a>.</p>
+    
+    <div class="input-group btns">
+      <button class="btn btn-primary" id="capture">Take screenshot</button>
+      <a class="btn btn-default" href="https://stefansundin.github.io/one-click-screenshot/" target="_blank">Help</a>
+      <a class="btn btn-default" href="https://stefansundin.github.io/one-click-screenshot/#donate" target="_blank">Donate</a>
+    </div>
+    
+    <p class="injecterror chrome">Chrome extensions can't inject scripts on chrome.google.com. You can use <a href="https://addons.mozilla.org/firefox/addon/one-click-screenshot/" target="_blank">the Firefox version</a> of the addon to do it, however.</p>
+    <p class="injecterror firefox">Firefox extensions can't inject scripts on certain mozilla.org domains. You can use <a href="https://chrome.google.com/webstore/detail/one-click-screenshot/jcjhinpbjkmdphmhkikndcdlfpkgllfo" target="_blank">the Chrome version</a> of the addon to do it, however. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1310082" target="_blank">See bug.</a></p>
+    
+  </div>
+  <br />
+  <br />
+   
+  <div id="note">
+    <div class="outer-wrapper">
+      <div class="new-note">
+        
+        <input type="text">
+        <textarea></textarea>
+        <button class="clear">Clear notes</button>
+        <button class="add">Add note</button>
+        <div class="clearfix"></div>
+      </div>
+      
+      <div class="note-container">
+        
+      </div>
+    </div>
+  </div>
   </div>
 
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" id="autostart"> Start capture automatically when popup opens
-    </label>
-  </div>
+  <script src="quicknote.js"></script>
 
-  <p>Keyboard shortcut: <a id="shortcut">error</a>.</p>
 
-  <div class="input-group btns">
-    <button class="btn btn-primary" id="capture">Take screenshot</button>
-    <a class="btn btn-default" href="https://stefansundin.github.io/one-click-screenshot/" target="_blank">Help</a>
-    <a class="btn btn-default" href="https://stefansundin.github.io/one-click-screenshot/#donate" target="_blank">Donate</a>
-  </div>
-
-  <p class="injecterror chrome">Chrome extensions can't inject scripts on chrome.google.com. You can use <a href="https://addons.mozilla.org/firefox/addon/one-click-screenshot/" target="_blank">the Firefox version</a> of the addon to do it, however.</p>
-  <p class="injecterror firefox">Firefox extensions can't inject scripts on certain mozilla.org domains. You can use <a href="https://chrome.google.com/webstore/detail/one-click-screenshot/jcjhinpbjkmdphmhkikndcdlfpkgllfo" target="_blank">the Chrome version</a> of the addon to do it, however. <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1310082" target="_blank">See bug.</a></p>
 </body>
 </html>

@@ -1,7 +1,7 @@
 {
   "name": "Smart-ed",
   "version": "0.0.3",
-  "description": "Take screenshots of entire websites. Alt+Shift+S is the default shortcut (Option+Shift+S on Mac).",
+  "description": "In these Covid time, we are in a situation where everything has shifted to digital. Even the classes which were designed for differently-abled cannot be accessed because of obvious reasons. Considering this and lack of any special facility for the differently abled people. We, the Frontliners have come up with a solution to bridge this gap in Technology. To overcome the challenges faced by our differently abled people we have developed an extension which will enable them hands free experience in accessing classes and taking notes and even reading the materials with their voice commands.",
   "homepage_url": "https://stefansundin.github.io/one-click-screenshot/",
   "author": "Stefan Sundin",
   "icons": {
