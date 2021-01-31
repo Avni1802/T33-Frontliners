@@ -41,3 +41,8 @@ const observer = new MutationObserver(callback);
 
 // Start observing the target node for configured mutations
 observer.observe(textContainer, config);
+
+
+var screenshotBtn = document.createElement('button');
+
+document.body.appendChild(screenshotBtn);
