@@ -1,5 +1,4 @@
 (function() {
-  window.preventD
   var canvas = document.createElement("canvas");
   var context = canvas.getContext("2d");
   var initial_position = {};
@@ -31,7 +30,7 @@
     }
   });
 
-  chrome.runtime.onMessage.addListener(async function(message, sender, sendResponse) {
+  chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     // console.log(message, sender);
     if (message.action == "check") {
       // Check to prevent injecting twice
@@ -47,8 +46,8 @@
       if (message.filename) {
         filename = message.filename;
       }
-      canvas.width = window.devicePixelRatio * (window.innerWidth - measureScrollbar());
-      canvas.height = window.devicePixelRatio * document.scrollingElement.scrollHeight;
+      canvas.width = (window.innerWidth - measureScrollbar());
+      canvas.height = document.scrollingElement.scrollHeight;
       window.scrollTo(0, 0);
       setTimeout(function() {
         chrome.runtime.sendMessage({
@@ -64,17 +63,12 @@
     else if (message.action == "frame") {
       if (aborted) return;
       // Draw the new frame on the canvas
-      var promise = new Promise(resolve => {
-        var img = new Image;
-        img.onload = function() {
-          context.drawImage(this, message.x, message.y);
-          resolve();
-        };
-        img.src = message.dataUrl;
-      });
+      var img = new Image;
+      img.onload = function() {
+        context.drawImage(this, message.x, message.y);
+      };
+      img.src = message.dataUrl;
 
-      // Wait until canvas has been updated
-      await promise;
       var x = document.scrollingElement.scrollLeft;
       var y = document.scrollingElement.scrollTop;
       var scrollHeight = document.scrollingElement.scrollHeight;
@@ -90,8 +84,8 @@
         setTimeout(function() {
           chrome.runtime.sendMessage({
             action: "capture",
-            x: window.devicePixelRatio * x,
-            y: window.devicePixelRatio * y
+            x: x,
+            y: y
           }, function(response) {
             // console.log("capture2 response:", response);
           });
@@ -99,30 +93,32 @@
       }
       else {
         // We're done, download the canvas
-        window.scrollTo(initial_position.x, initial_position.y);
-        running = false;
-        chrome.runtime.sendMessage({
-          action: "goodbye"
-        });
-        
-        context.canvas.toBlob(function(blob) {
-          if (blob == null) {
-            alert("Sorry, toBlob() returned null. The screenshot you are trying to take is probably too large.\n\nReport your dissatisfaction here:\nhttps://github.com/stefansundin/one-click-screenshot/issues/5\n\nNote: The Firefox version does not seem to have this problem.");
-            return;
-          }
-          console.log("blob", blob);
-          var url = window.URL.createObjectURL(blob);
-          var a = document.createElement("a");
-          a.style.display = "none";
-          a.href = url;
-          a.download = filename;
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-          }, 100);
-        });
+        // Wait until canvas has been updated
+        setTimeout(function() {
+          window.scrollTo(initial_position.x, initial_position.y);
+          running = false;
+          chrome.runtime.sendMessage({
+            action: "goodbye"
+          });
+          context.canvas.toBlob(function(blob) {
+            if (blob == null) {
+              alert("Sorry, toBlob() returned null. The screenshot you are trying to take is probably too large.\n\nReport your dissatisfaction here:\nhttps://github.com/stefansundin/one-click-screenshot/issues/5");
+              return;
+            }
+            // console.log("blob", blob);
+            var url = window.URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.style.display = "none";
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+              document.body.removeChild(a);
+              window.URL.revokeObjectURL(url);
+            }, 100);
+          });
+        }, 500);
       }
     }
     else if (message.action == "abort") {
@@ -131,20 +127,3 @@
   });
   return "injected";
 })();
-
-// var url='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js';
-
-// var actualCode = Tesseract.recognize(
-//   'https://tesseract.projectnaptha.com/img/eng_bw.png',
-//   'eng',
-//   { logger: m => console.log(m) }
-// ).then(({ data: { text } }) => {
-//   console.log(text);
-// });
-
-
-// var script = document.createElement('script');
-// script.src = url;
-// script.textContent = actualCode;
-// (document.head||document.documentElement).appendChild(script);
-// script.remove();

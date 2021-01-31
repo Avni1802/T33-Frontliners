@@ -1,0 +1,11 @@
+Thumbs.db
+*.DS_Store
+*.swp
+
+*.min.js
+*.min.css
+*.woff2
+/*.crx
+/*.xpi
+/*.zip
+/*.pem
