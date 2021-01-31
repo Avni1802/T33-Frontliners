@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "test_ext",
+    "name": "voice-feature",
     "version": "1.0",
   
     "description": "An Extension to help the differently abled people to access education in these COVID-Time",
@@ -16,7 +16,7 @@
   
   "content_scripts":[
     {
-        "matches":["*://*.meet.google.com/*"],
+        "matches":["*://*.meet.google.com/*-*-*"],
         "js" : ["content_scripts/msg_to_voice.js"]
     }
   ]
