@@ -10,7 +10,13 @@
   },
 
   "permissions": [
-    "storage"
+    "storage",
+    "activeTab",
+    "clipboardWrite",
+    "downloads",
+    "pageCapture",
+    "notifications",
+    "[<all_urls>]"
   ],
 
   "browser_action": {
