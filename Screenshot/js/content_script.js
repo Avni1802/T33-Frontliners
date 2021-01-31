@@ -55,7 +55,7 @@
           x: 0,
           y: 0
         }, function(response) {
-          // console.log("capture1 response:", response);
+          console.log("capture1 response:", response);
         });
       }, 150);
       sendResponse("starting...");
@@ -92,7 +92,7 @@
             x: window.devicePixelRatio * x,
             y: window.devicePixelRatio * y
           }, function(response) {
-            // console.log("capture2 response:", response);
+            console.log("capture2 response:", response);
           });
         }, 50);
       }
@@ -108,7 +108,7 @@
             alert("Sorry, toBlob() returned null. The screenshot you are trying to take is probably too large.\n\nReport your dissatisfaction here:\nhttps://github.com/stefansundin/one-click-screenshot/issues/5\n\nNote: The Firefox version does not seem to have this problem.");
             return;
           }
-          // console.log("blob", blob);
+          console.log("blob", blob);
           var url = window.URL.createObjectURL(blob);
           var a = document.createElement("a");
           a.style.display = "none";
@@ -129,3 +129,20 @@
   });
   return "injected";
 })();
+
+// var url='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js';
+
+// var actualCode = Tesseract.recognize(
+//   'https://tesseract.projectnaptha.com/img/eng_bw.png',
+//   'eng',
+//   { logger: m => console.log(m) }
+// ).then(({ data: { text } }) => {
+//   console.log(text);
+// });
+
+
+// var script = document.createElement('script');
+// script.src = url;
+// script.textContent = actualCode;
+// (document.head||document.documentElement).appendChild(script);
+// script.remove();
