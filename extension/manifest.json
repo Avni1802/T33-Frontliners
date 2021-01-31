@@ -16,7 +16,9 @@
     "downloads",
     "storage",
     "pageCapture",
-    "notifications"
+    "notifications",
+    "[<all_urls>]"
+    
   ],
 
   "browser_action": {
