@@ -1,4 +1,5 @@
 (function() {
+  window.preventD
   var canvas = document.createElement("canvas");
   var context = canvas.getContext("2d");
   var initial_position = {};
@@ -55,7 +56,7 @@
           x: 0,
           y: 0
         }, function(response) {
-          console.log("capture1 response:", response);
+          // console.log("capture1 response:", response);
         });
       }, 150);
       sendResponse("starting...");
@@ -92,7 +93,7 @@
             x: window.devicePixelRatio * x,
             y: window.devicePixelRatio * y
           }, function(response) {
-            console.log("capture2 response:", response);
+            // console.log("capture2 response:", response);
           });
         }, 50);
       }
@@ -103,6 +104,7 @@
         chrome.runtime.sendMessage({
           action: "goodbye"
         });
+        
         context.canvas.toBlob(function(blob) {
           if (blob == null) {
             alert("Sorry, toBlob() returned null. The screenshot you are trying to take is probably too large.\n\nReport your dissatisfaction here:\nhttps://github.com/stefansundin/one-click-screenshot/issues/5\n\nNote: The Firefox version does not seem to have this problem.");
